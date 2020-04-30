@@ -1,0 +1,13 @@
+{{#if (eq @name @alternativeName)}}
+  <h1>{{@name}}</h1>
+{{else}}
+  {{#if (eq @displayMode "displayAlternative")}}
+    <h1>{{@name}} <em>({{@alternativeName}})</em></h1>
+  {{/if}}
+  {{#if (eq @displayMode "displayAlternativeFirst")}}
+    <h1>{{@alternativeName}} <em>({{@name}}</em></h1>
+  {{/if}}
+  {{#if (eq @displayMode "dontDisplayAlternative")}}
+    <h1>{{@name}}</h1>
+  {{/if}}
+{{/if}}

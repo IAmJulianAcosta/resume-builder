@@ -1,0 +1,28 @@
+<article
+  class="degree"
+  id="{{dasherize @degree.name}}-{{dasherize @degree.college}}-{{@degree.year}}"
+>
+  <h1>{{@degree.name}}</h1>
+  <p class="place">
+    <span class="college">{{@degree.college}}</span>{{#if @degree.city}},
+    <span class="city">
+      {{@degree.city}}
+    </span>
+  {{/if}}</p>
+  {{#if @degree.gpa}}
+    <p>{{@degree.gpa}}</p>
+  {{/if}}
+
+  <p class="degree-dates">
+    {{#if @degree.start}}
+      <time class="degree-start" datetime={{moment-format @degree.start "YYYY-MM-DD"}}>
+        {{moment-format @degree.start "YYYY"}}
+      </time>
+      -
+    {{/if}}
+    <time class="degree-end" datetime={{moment-format @degree.end "YYYY-MM-DD"}}>
+      {{moment-format @degree.end "YYYY"}}
+    </time>
+  </p>
+  {{{degree.description}}}
+</article>

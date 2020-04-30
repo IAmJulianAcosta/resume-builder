@@ -1,0 +1,41 @@
+<article class="company">
+  <h1>{{@company.company}}</h1>
+  {{#with (get @company.jobs 0) as |job|}}
+    <Rendered::Experience::CompanyInfo
+      @company={{@company.company}}
+      @city={{job.city}}
+      @showCity={{@config.showCity}}
+    />
+  {{/with}}
+  <Rendered::Experience::Dates
+    @start={{get (get @company.jobs (sub @company.jobs.length 1)) "start"}}
+    @end={{get (get @company.jobs 0) "end"}} @showJobDuration=@showJobDuration
+    @showJobDuration={{@showJobDuration}}
+  />
+  {{#if @showSkills}}
+    <h2>Skills</h2>
+    <ul class="skills">
+      {{#each @company.jobs as |job|}}
+        {{#each job.skills as |skill|}}
+          <li class="skill">{{skill}}</li>
+        {{/each}}
+      {{/each}}
+    </ul>
+  {{/if}}
+  {{#each @company.jobs as |job index|}}
+    <ol class="jobs">
+      <li class="job-list-item">
+        <Rendered::Experience::Job
+          @company={{@company}}
+          @job={{job}}
+          @descriptionAsList={{@config.descriptionAsList}}
+          @showJobDuration={{@config.showJobDuration}}
+          @showSkills={{false}}
+          @showCompany={{false}}
+          @displayJobsDates={{false}}
+          id="{{@company.company}}-{{@index}}-{{index}}"
+        />
+      </li>
+    </ol>
+  {{/each}}
+</article>

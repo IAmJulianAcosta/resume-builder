@@ -1,0 +1,15 @@
+{{#if @descriptionAsList}}
+  <ul class="description">
+    {{#each @description as |listItem|}}
+      <li class="description-item">
+        {{listItem}}
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <div class="description">
+    {{#each @description as |paragraph|}}
+      <p class="description-item">{{paragraph}}</p>
+    {{/each}}
+  </div>
+{{/if}}

@@ -1,0 +1,12 @@
+<article class="language" id={{dasherize @language.name}}>
+  <Rendered::Languages::Name
+    @name={{@language.name}}
+    @alternativeName={{@language.alternativeName}}
+    @displayMode={{@displayMode}}
+  />
+  {{#with @project.level as |level|}}
+    {{#if @showLevel}}
+      <Rendered::Level @level={{level}} />
+    {{/if}}
+  {{/with}}
+</article>

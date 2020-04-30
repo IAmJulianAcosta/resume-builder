@@ -1,0 +1,22 @@
+{{#with @data as |contact|}}
+  <div id="contact">
+    <div id="email">{{{contact.email}}}</div>
+    <div id="phone">{{{contact.phone}}}</div>
+    <div id="address">{{{contact.address}}}</div>
+    {{#with (find-by "network" "linkedIn" contact.social) as |linkedIn|}}
+      <div id="linkedin">
+        <Rendered::Social::Item @item={{linkedIn}} />
+      </div>
+    {{/with}}
+    {{#with contact.websites as |websites|}}
+      <div id="websites">
+        {{#each websites as |website|}}
+          <a href="{{{website.url}}}" target="blank">
+            {{{if website.name website.name "website"}}}
+          </a>
+        {{/each}}
+      </div>vb
+    {{/with}}
+    <Rendered::Social @list={{contact.social}} />
+  </div>
+{{/with}}

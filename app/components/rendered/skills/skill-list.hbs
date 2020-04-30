@@ -1,0 +1,18 @@
+{{#if @withDescription}}
+  <dl>
+    {{#each @skills as |skill|}}
+      <Rendered::Skills::Skill::WithDescription
+        @skill={{skill}}
+        @showLevel={{@showLevel}}
+      />
+    {{/each}}
+  </dl>
+{{else}}
+  <ul>
+    {{#each @skills as |skill|}}
+      <li class="skill" id={{dasherize @skill.name}}>
+        <Rendered::Skills::Skill::Index @skill={{skill}} />
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

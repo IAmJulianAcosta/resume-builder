@@ -1,0 +1,10 @@
+<section id="projects">
+  <h1>Projects</h1>
+  <ol class="projects-list">
+    {{#each @projects as |project|}}
+      <li class="project-list-item">
+        <Rendered::Projects::Project @project={{project}} />
+      </li>
+    {{/each}}
+  </ol>
+</section>

@@ -1,0 +1,43 @@
+{{#with @data as |companies|}}
+  <section id="experience">
+    <h1>Professional experience</h1>
+    {{#if @config.groupByCompany}}
+      <ol class="companies">
+        {{#each companies as |company index|}}
+          <li class="company">
+            <Rendered::Experience::Company
+                @company={{company}}
+                @config={{@config}}
+                @showSkills={{@config.showSkills}}
+                @descriptionAsList={{@config.descriptionAsList}}
+                @showSkills={{@config.showSkills}}
+                @showJobDuration={{@config.showJobDuration}}
+                @showCity={{true}}
+                @index={{index}}
+            />
+          </li>
+        {{/each}}
+      </ol>
+    {{else}}
+      <ol class="jobs">
+        {{#each companies as |company|}}
+          {{#each company.jobs as |job index|}}
+            <li class="job-list-item">
+              <Rendered::Experience::Job
+                  @company={{company}}
+                  @job={{job}}
+                  @descriptionAsList={{@config.descriptionAsList}}
+                  @showJobDuration={{@config.showJobDuration}}
+                  @showSkills={{@config.showSkills}}
+                  @showCity={{true}}
+                  @showCompany={{true}}
+                  @displayJobsDates={{true}}
+                  id="{{company.company}}-{{index}}"
+              />
+            </li>
+          {{/each}}
+        {{/each}}
+      </ol>
+    {{/if}}
+  </section>
+{{/with}}

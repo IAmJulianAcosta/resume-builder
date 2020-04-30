@@ -1,0 +1,9 @@
+{{#with @data as |paragraphs|}}
+  <div id="summary">
+    {{#each paragraphs as |paragraph|}}
+      <p>
+        {{{paragraph}}}
+      </p>
+    {{/each}}
+  </div>
+{{/with}}

@@ -1,0 +1,25 @@
+<article class="job" ...attributes>
+  <h1>{{@job.role}}</h1>
+  {{#if @showCompany}}
+    <Rendered::Experience::CompanyInfo
+      @company={{@company.company}}
+      @city={{@job.city}}
+      @showCity={{@showCity}}
+    />
+  {{/if}}
+  {{#if @displayJobsDates}}
+    <Rendered::Experience::Dates @start={{@job.start}} @end={{@job.end}} @showJobDuration=@showJobDuration />
+  {{/if}}
+  {{#if (and @showSkills @job.skills)}}
+    <h2>Skills</h2>
+    <ul class="skills">
+      {{#each @job.skills as |skill|}}
+        <li class="skill">{{skill}}</li>
+      {{/each}}
+    </ul>
+  {{/if}}
+  <Rendered::Experience::Description
+    @description={{@job.description}}
+    @descriptionAsList={{@descriptionAsList}}
+  />
+</article>

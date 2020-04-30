@@ -1,0 +1,34 @@
+<header>
+  <h1 id="name">{{@model.name}}</h1>
+  <Rendered::Photo
+    @name={{@model.name}}
+    @url={{@model.photoUrl}}
+  />
+  <div id="title">{{@model.title}}</div>
+  {{#if this.config.layout.header.barBelow}}
+    <aside>
+      <Rendered::SectionGroup
+        @config={{this.config}}
+        @components={{this.config.content.header.bar.display}}
+        @model={{@model}}
+      />
+    </aside>
+  {{/if}}
+</header>
+<aside>
+  <Rendered::SectionGroup
+    @config={{this.config}}
+    @components={{this.config.content.sidebar.display}}
+    @model={{@model}}
+  />
+</aside>
+<main>
+  <Rendered::SectionGroup
+    @config={{this.config}}
+    @components={{this.config.content.main.display}}
+    @model={{@model}}
+  />
+</main>
+<footer>
+
+</footer>

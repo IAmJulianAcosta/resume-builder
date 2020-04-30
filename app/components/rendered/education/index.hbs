@@ -1,0 +1,12 @@
+{{#with @data as |education|}}
+  <article id="education">
+    <h1>Education</h1>
+    <ol>
+      {{#each education as |degree|}}
+        <li>
+          <Rendered::Education::Degree @degree={{degree}} />
+        </li>
+      {{/each}}
+    </ol>
+  </article>
+{{/with}}

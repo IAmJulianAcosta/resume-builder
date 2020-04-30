@@ -1,0 +1,8 @@
+<Rendered::Experience::Date @date={{@start}} />
+-
+{{#if @end}}
+  <Rendered::Experience::Date @date={{@end}} />
+  {{#if @showJobDuration}}({{job-duration @start @end}}){{/if}}
+{{else}}
+  Actually
+{{/if}}

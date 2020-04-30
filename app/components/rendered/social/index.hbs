@@ -1,0 +1,10 @@
+<ul id="social">
+  {{! TODO linkedin here and link }}
+  {{#each @list as |social|}}
+    {{#if (or not-eq social.network "linkedin" (and @config.includeLinkedIn (eq social.network "linkedIn")))}}
+      <li id={{{dasherize social.network}}} class="social-item">
+        <Rendered::Social::Item @item={{social}} />
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>

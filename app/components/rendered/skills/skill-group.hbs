@@ -1,0 +1,8 @@
+<article class="skill-group" id={{{dasherize @group.title}}}>
+  <h1>{{{@group.title}}}</h1>
+  <Rendered::Skills::SkillList
+    @skills={{@group.skills}}
+    @withDescription={{@config.withDescription}}
+    @showLevel={{@config.showLevel}}
+  />
+</article>

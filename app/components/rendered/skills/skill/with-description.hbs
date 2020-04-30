@@ -1,0 +1,11 @@
+<dt class="skill name" id={{dasherize @skill.name}}>{{@skill.name}}</dt>
+<dd class="skill description">
+  {{#with @skill.description as |description|}}
+    <span class="description">{{@skill.description}}</span>
+  {{/with}}
+  {{#with @skill.level as |level|}}
+    {{#if @showLevel}}
+      <Rendered::Level @level={{level}} />
+    {{/if}}
+  {{/with}}
+</dd>

@@ -1,0 +1,16 @@
+{{#with @data as |languages|}}
+  <section id="languages">
+    <h1>Languages</h1>
+    <ul class="languages-list">
+      {{#each languages as |language|}}
+        <li class="language-list-item">
+          <Rendered::Languages::Language
+            @language={{language}}
+            @displayMode={{@config.displayMode}}
+            @showLevel={{@config.showLevel}}
+          />
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+{{/with}}

@@ -1,0 +1,7 @@
+{{#each @components as |componentName|}}
+  {{component
+    (concat "rendered/" componentName "/index")
+    data=(get @model componentName)
+    config=(get @config componentName)
+  }}
+{{/each}}
